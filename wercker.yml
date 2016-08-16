@@ -20,3 +20,7 @@ deploy:
         name: ls source
         code: |
           ls -haltr /pipeline/source
+    - duleorlovic/ftp-deploy:
+        destination: ftp://ftp.fanweekend.pt
+        username: wercker@fanweekend.pt
+        password: $PASSWORD
