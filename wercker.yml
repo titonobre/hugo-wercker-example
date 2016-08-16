@@ -4,7 +4,7 @@ build:
     - arjen/hugo-build@1.8.1:
         version: "0.15"
         theme: herring-cove
-        flags: --buildDrafts=true
+        flags: --buildDrafts=true --destination /pipeline/output
     - script:
         name: ls stuff
         code: |
@@ -23,6 +23,7 @@ deploy:
     - install-packages:
         packages: curl git ssh-client liberror-perl
     - duleorlovic/ftp-deploy:
+        cwd: /pipeline/output
         destination: ftp://ftp.fanweekend.pt
         username: wercker@fanweekend.pt
         password: $PASSWORD
