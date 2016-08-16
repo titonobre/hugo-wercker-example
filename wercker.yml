@@ -20,6 +20,8 @@ deploy:
         name: ls source
         code: |
           ls -haltr /pipeline/source
+    - install-packages:
+        packages: curl git ssh-client liberror-perl
     - duleorlovic/ftp-deploy:
         destination: ftp://ftp.fanweekend.pt
         username: wercker@fanweekend.pt
